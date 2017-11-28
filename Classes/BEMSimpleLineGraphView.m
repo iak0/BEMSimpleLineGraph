@@ -154,6 +154,7 @@ typedef NS_ENUM(NSInteger, BEMInternalTags)
     _colorPoint = [UIColor colorWithWhite:1.0 alpha:0.7];
     _colorTouchInputLine = [UIColor grayColor];
     _colorBackgroundPopUplabel = [UIColor whiteColor];
+    _colorFontPopUplabel = [UIColor blackColor];
     _alphaTouchInputLine = 0.2;
     _widthTouchInputLine = 1.0;
     _colorBackgroundXaxis = nil;
@@ -531,6 +532,8 @@ typedef NS_ENUM(NSInteger, BEMInternalTags)
                     if ([self.delegate respondsToSelector:@selector(lineGraph:alwaysDisplayPopUpAtIndex:)]) {
                         if ([self.delegate lineGraph:self alwaysDisplayPopUpAtIndex:i] == YES) {
                             [self displayPermanentLabelForPoint:circleDot];
+                            circleDot.alpha = 1.0;
+                            continue;
                         }
                     } else [self displayPermanentLabelForPoint:circleDot];
                 }
@@ -586,6 +589,7 @@ typedef NS_ENUM(NSInteger, BEMInternalTags)
     line.bezierCurveIsEnabled = self.enableBezierCurve;
     line.arrayOfPoints = yAxisValues;
     line.arrayOfValues = self.graphValuesForDataPoints;
+    line.dashPattern = self.dashPattern;
     line.lineDashPatternForReferenceYAxisLines = self.lineDashPatternForReferenceYAxisLines;
     line.lineDashPatternForReferenceXAxisLines = self.lineDashPatternForReferenceXAxisLines;
     line.interpolateNullValues = self.interpolateNullValues;
@@ -1102,6 +1106,7 @@ typedef NS_ENUM(NSInteger, BEMInternalTags)
     
     permanentPopUpLabel.font = self.labelFont;
     permanentPopUpLabel.backgroundColor = [UIColor clearColor];
+    permanentPopUpLabel.textColor = self.colorFontPopUplabel;
     [permanentPopUpLabel sizeToFit];
     permanentPopUpLabel.center = CGPointMake(self.xCenterLabel, circleDot.center.y - circleDot.frame.size.height/2 - 15);
     permanentPopUpLabel.alpha = 0;

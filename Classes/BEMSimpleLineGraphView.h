@@ -326,8 +326,16 @@ IB_DESIGNABLE @interface BEMSimpleLineGraphView : UIView <UIGestureRecognizerDel
 @property (strong, nonatomic) UIColor *colorBackgroundPopUplabel;
 
 
+/// Color of the pop up label's font displayed when the user touches the graph.
+@property (strong, nonatomic) UIColor *colorFontPopUplabel;
+
+
 /// Position of the y-Axis in relation to the chart (Default: NO)
 @property (nonatomic) BOOL positionYAxisRight;
+
+
+/// A line dash pattern to be applied to the drawn line.  This allows you to draw a dotted or hashed line
+@property (nonatomic, strong) NSArray *dashPattern;
 
 
 /// A line dash patter to be applied to X axis reference lines.  This allows you to draw a dotted or hashed line

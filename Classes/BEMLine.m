@@ -260,6 +260,7 @@
         pathLayer.lineWidth = self.lineWidth;
         pathLayer.lineJoin = kCALineJoinBevel;
         pathLayer.lineCap = kCALineCapRound;
+        if (self.dashPattern) pathLayer.lineDashPattern = self.dashPattern;
         if (self.animationTime > 0) [self animateForLayer:pathLayer withAnimationType:self.animationType isAnimatingReferenceLine:NO];
         if (self.lineGradient) [self.layer addSublayer:[self backgroundGradientLayerForLayer:pathLayer]];
         else [self.layer addSublayer:pathLayer];

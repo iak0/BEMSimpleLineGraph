@@ -76,6 +76,9 @@ typedef NS_ENUM(NSUInteger, BEMLineGradientDirection) {
 /** If reference frames are enabled, this will enable/disable specific borders.  Default: NO */
 @property (assign, nonatomic) BOOL enableTopReferenceFrameLine;
 
+/** Dash pattern for the line */
+@property (strong, nonatomic) NSArray *dashPattern;
+
 /** Dash pattern for the references line on the X axis */
 @property (nonatomic, strong) NSArray *lineDashPatternForReferenceXAxisLines;
 
